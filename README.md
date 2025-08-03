@@ -50,9 +50,6 @@ OPENAI_API_KEY=your_openai_key_here
 NEWSAPI_KEY=your_newsapi_key_here
 ```
 
-> Do **not** use quotes around keys.  
-> Do **not** commit this file.
-
 ---
 
 ### STEP 4 — ENSURE `.env` IS IGNORED
