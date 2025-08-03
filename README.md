@@ -3,71 +3,95 @@
 
 ## Specifications
 
-This is a Python-based bot that:
+This Python-based bot:
 
 - Fetches current news headlines using the NewsAPI.
 - Summarizes each article using OpenAI's GPT model (gpt-3.5-turbo by default).
-- Returns brief summaries alongside article headlines and source information.
-- Is modular and easy to extend or customize.
+- Uses environment variables for API keys, loaded via the `python-dotenv` package.
+- Is modular and easy to adapt or extend.
 
 ## Setup Instructions
 
-1. **Clone the repository**  
-   (If you have the project on GitHub or in a repository)
+### 1. Clone the Project Repository
+If hosted on GitHub (or adapt as needed for your workflow):
 
-   ```
-   git clone https://github.com/zolo-z1west/news-summarizer-bot.git
-   cd news-summarizer-bot
-   ```
+```bash
+git clone https://github.com/your-username/news-summarizer-bot.git
+cd news-summarizer-bot
+```
 
-2. **Install required packages**
+### 2. Install Dependencies
+Ensure you have Python 3.7 or higher installed. Then install required packages:
 
-   Make sure you have Python 3.7 or above installed. Then run:
+```bash
+pip install -r requirements.txt
+```
 
-   ```
-   pip install -r requirements.txt
-   ```
+### 3. Create a `.env` File for Secrets
+Create a file named `.env` in the root of your project with the following content:
 
-3. **Add your API keys**
+```
+OPENAI_API_KEY=your_openai_api_key_here
+NEWSAPI_KEY=your_newsapi_key_here
+```
 
-   Open the `config.py` file and add your keys:
+Replace the values with your actual API keys.
 
-   ```python
-   OPENAI_API_KEY = "your_openai_api_key"
-   NEWSAPI_KEY = "your_newsapi_api_key"
-   ```
+### 4. Add `.env` to `.gitignore` (optional but recommended)
+To prevent accidental exposure of sensitive info, make sure `.env` is listed in `.gitignore`:
 
-4. **Run the bot**
+```
+.env
+```
 
-   You can start the bot by running:
+> This step may already be reflected in your project.
 
-   ```
-   python main.py
-   ```
+## Running the Bot
 
-## Customizing the News Query
+To run the bot and see result summaries:
 
-To change what kind of news is fetched:
+```bash
+python main.py
+```
 
-1. Open the `main.py` file.
-2. Find the line:
+This will fetch and summarize 5 recent news articles using default settings.
+
+## Changing the News Query
+
+The default behavior fetches news headlines using the keyword `"space"` (or general headlines if set to `None`).
+
+To change this:
+
+1. Open `main.py`
+2. Locate the line:
 
    ```python
    analyze_news(keyword="space", count=5)
    ```
 
-3. Replace `"space"` with any keyword of your choice (for example, `"sports"`, `"politics"`, `"science"`).
+3. Replace `"space"` with any topic of your choice:
 
-4. You can also set the keyword to `None` to fetch general top headlines:
+   ```python
+   analyze_news(keyword="technology", count=5)
+   analyze_news(keyword="sports", count=3)
+   ```
+
+4. You may also set `keyword=None` to fetch general top headlines:
 
    ```python
    analyze_news(keyword=None, count=5)
    ```
 
-5. Save the file and rerun:
+5. Save and re-run:
 
-   ```
+   ```bash
    python main.py
    ```
 
-This will fetch and summarize new articles based on the keyword you set.
+## Notes
+
+- OpenAI key requires an active OpenAI account with access to `gpt-3.5-turbo`.
+- NewsAPI.org keys are free to obtain with limited usage per day.
+- Output includes each article’s title, source, URL, and summarized content.
+
+Let me know if you’d like this README exported to a `.md` file or want to add project badges, screenshots, CLI options, or deployment steps.
