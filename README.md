@@ -19,7 +19,7 @@
 ### STEP 1 — CLONE THE PROJECT
 
 ```bash
-git clone https://github.com/your-username/news_summarizer_bot.git
+git clone https://github.com/zolo-z1west/news_summarizer_bot.git
 cd news_summarizer_bot
 ```
 
