@@ -1,117 +1,119 @@
-**News Summarizer Bot**
-```
+# NEWS SUMMARIZER BOT
 
-## Specifications
+---
 
-This project is a Python-based bot that:
+## PROJECT OVERVIEW
 
-- Fetches the latest news headlines using NewsAPI.
-- Summarizes each news article using OpenAI's Chat API (`gpt-3.5-turbo`).
-- Loads API keys securely from a `.env` file using the `python-dotenv` package.
-- Supports topic-based querying and modular logic.
-- Avoids committing any secret files or keys to Git.
+**NEWS SUMMARIZER BOT** is a Python-based automation tool that:
 
-## Setup Instructions
+- Fetches the **latest news headlines** using **NewsAPI**
+- Summarizes each article using **OpenAI’s GPT-3.5-Turbo**
+- Loads API keys securely via a `.env` file using `python-dotenv`
+- Supports **topic-based querying** with clean, modular code
+- Prevents accidental commits of secret files or API keys
 
-### 1. Clone the Project
+---
+
+## SETUP INSTRUCTIONS
+
+### STEP 1 — CLONE THE PROJECT
 
 ```bash
 git clone https://github.com/your-username/news_summarizer_bot.git
 cd news_summarizer_bot
 ```
 
+---
 
-### 2. Install Dependencies
+### STEP 2 — INSTALL DEPENDENCIES
 
-Ensure you have Python 3.7+ installed. From your project folder, run:
+Make sure you have **Python 3.7+** installed. Then run:
 
 ```bash
 pip install -r requirements.txt
 ```
 
-This installs -
+This installs:
 
-- `openai` – for AI summarization
-- `requests` – to call NewsAPI
-- `python-dotenv` – to safely load secrets from `.env`
+- `openai` – AI summarization
+- `requests` – NewsAPI calls
+- `python-dotenv` – for loading secrets
 
-### 3. Add Your API Keys (⚠ Do Not Share)
+---
 
-Create a `.env` file in your project root with the following contents:
+### STEP 3 — CONFIGURE API KEYS
+
+Create a `.env` file in your project root:
 
 ```
 OPENAI_API_KEY=your_openai_key_here
 NEWSAPI_KEY=your_newsapi_key_here
 ```
 
-- Do **not** wrap keys in quotes.
-- Do **not** commit this file to GitHub.
+> Do **not** use quotes around keys.  
+> Do **not** commit this file.
 
-### 4. Add `.env` to `.gitignore`
+---
 
-Make sure `.gitignore` includes:
+### STEP 4 — ENSURE `.env` IS IGNORED
+
+In your `.gitignore`, add:
 
 ```
 .env
 ```
 
-This prevents accidental commit of secrets (which would trigger GitHub push protection errors).
+Check that `.env` is ignored using:
 
-### 5. Run the Bot
+```bash
+git check-ignore -v .env
+```
 
-To run the project and see news summaries:
+---
+
+### STEP 5 — RUN THE BOT
+
+Run the project with:
 
 ```bash
 python main.py
 ```
 
-This will fetch and summarize five articles (default topic is "space").
+This fetches and summarizes **5 space-related articles** by default.
 
-## Changing the News Topic
+---
 
-To update the type of news being summarized:
+## CUSTOMIZE TOPIC
 
-1. Open `main.py`
-2. Locate the line:
+Open `main.py` and find:
 
-   ```python
-   analyze_news(keyword="space", count=5)
-   ```
+```python
+analyze_news(keyword="space", count=5)
+```
 
-3. Change `"space"` to your preferred topic, like `"technology"`, `"politics"`, or `"sports"`, for example:
+Change `"space"` to:
 
-   ```python
-   analyze_news(keyword="technology", count=5)
-   ```
+- `"technology"`
+- `"politics"`
+- `"sports"`
+- or use `keyword=None` for general headlines:
 
-4. You can also set `keyword=None` to fetch general top headlines:
+```python
+analyze_news(keyword=None, count=5)
+```
 
-   ```python
-   analyze_news(keyword=None, count=5)
-   ```
+Then run again:
 
-5. Save and rerun:
+```bash
+python main.py
+```
 
-   ```bash
-   python main.py
-   ```
+---
 
-## Troubleshooting
+## ABOUT THIS PROJECT ;
 
-- **No news articles returned**: Try using a general keyword or set `keyword=None`.
-- **Push blocked by GitHub**: Remove secrets from `.env`, clean history with `git filter-repo`, and force push only after `.env` is excluded.
-- **Summary shows as `None`**: Check that your OpenAI key is valid and that `openai` package is using the new `chat.completions.create()` format.
+This is one of my **first projects in AI bot development**.  
+I'm open to **feedback**, **collaboration**, and new opportunities to **learn**.
 
-## Security Reminders
-
-- Never commit actual API keys.
-- Always test `.gitignore` to confirm `.env` is ignored:  
-  ```bash
-  git check-ignore -v .env
-  ```
-
-
-This is one of my first projects in ai bot creation. I would love feedbacks and any oppurtunities of collaborating and learning.
-
-Follow my twitter (i post regularly while i create new projs).
-https://x.com/Zolo_Atheus
+Follow me on Twitter:  
+[https://x.com/Zolo_Atheus](https://x.com/Zolo_Atheus)
