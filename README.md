@@ -29,7 +29,7 @@ Ensure you have Python 3.7+ installed. From your project folder, run:
 pip install -r requirements.txt
 ```
 
-This installs:
+This installs -
 
 - `openai` – for AI summarization
 - `requests` – to call NewsAPI
